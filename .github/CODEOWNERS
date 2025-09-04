@@ -1,0 +1,3 @@
+# Archivo CODEOWNERS
+# Todos los archivos del repo requieren revisión de los equipos DSO
+* @OrgEjemplo/dso-dev @OrgEjemplo/dso-approver

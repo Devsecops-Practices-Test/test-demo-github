@@ -1,0 +1,11 @@
+{
+  "name": "hola-mundo-node",
+  "version": "1.0.0",
+  "description": "Proyecto Hola Mundo con Node.js, CODEOWNERS y GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Lorena Antonella",
+  "license": "MIT"
+}
