@@ -1,3 +1,52 @@
-# Archivo CODEOWNERS
-# Todos los archivos del repo requieren revisión de los equipos DSO
-* @Devsecops-Practices-Test/dso-aprover
+# ================================================
+# CODEOWNERS  (aprobador obligatorio)
+# Ubicación recomendada: .github/CODEOWNERS
+# Regla de GitHub: el ÚLTIMO patrón que coincide es el que aplica.
+# Mantén los patrones ESPECÍFICOS al final.
+# ================================================
+
+# 👑 Dueño global (fallback)
+# Todos los archivos del repo requieren revisión del equipo approver.
+* @Devsecops-Practices-Test/dso-approver
+
+# --------------------------------
+# 🛡️ Paths críticos (seguridad)
+# Refuerzan que cambios en controles y pipeline SIEMPRE pasen por approver.
+# --------------------------------
+/.github/**                @Devsecops-Practices-Test/dso-approver
+/.github/workflows/**      @Devsecops-Practices-Test/dso-approver
+/.github/CODEOWNERS        @Devsecops-Practices-Test/dso-approver
+/infra/**                  @Devsecops-Practices-Test/dso-approver
+/scripts/**                @Devsecops-Practices-Test/dso-approver
+/ci/**                     @Devsecops-Practices-Test/dso-approver
+
+# --------------------------------
+# 📦 Terceros / dependencias vendorizadas
+# (mantener bajo control por riesgo de supply-chain)
+/vendor/**                 @Devsecops-Practices-Test/dso-approver
+/third_party/**            @Devsecops-Practices-Test/dso-approver
+
+# --------------------------------
+# 📚 Documentación y pruebas
+# En banca suelen requerir revisión igual.
+/docs/**                   @Devsecops-Practices-Test/dso-approver
+/tests/**                  @Devsecops-Practices-Test/dso-approver
+
+# --------------------------------
+# 🧩 Áreas opcionales por dominio (SOLO si también exiges approver)
+# ⚠️ OJO: si añades squads aquí sin otra medida,
+# GitHub aceptará la aprobación de CUALQUIER owner listado.
+# Para mantener al approver como obligatorio:
+#  - Mantén SIEMPRE @.../dso-approver en la línea
+#  - Y usa Rulesets "Required reviewers" o sube "Required approvals" a 2
+#    (no garantiza 1 de cada, pero eleva el listón)
+#
+# Ejemplos (déjalos comentados si no usarás required reviewers):
+# /src/frontend/**          @Devsecops-Practices-Test/frontend-squad @Devsecops-Practices-Test/dso-approver
+# /src/backend/**           @Devsecops-Practices-Test/backend-squad  @Devsecops-Practices-Test/dso-approver
+
+# --------------------------------
+# 🆘 Aprobador persona (opcional, auditoría fuerte)
+# Puedes añadir un líder como respaldo adicional en TODO el repo:
+# (Descomenta si lo necesitas)
+# * @usuario-lider
